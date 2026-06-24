@@ -21,10 +21,20 @@ function App() {
   const [isAdminView, setIsAdminView] = useState(window.location.hash === '#admin');
 
   useEffect(() => {
+    let prevHash = window.location.hash;
     const handleHashChange = () => {
-      setIsAdminView(window.location.hash === '#admin');
-      // Scroll to top when changing views
-      window.scrollTo(0, 0);
+      const currentHash = window.location.hash;
+      const wasAdmin = prevHash === '#admin';
+      const isAdmin = currentHash === '#admin';
+      
+      setIsAdminView(isAdmin);
+      
+      // Scroll to top only when entering or exiting admin portal
+      if (wasAdmin !== isAdmin) {
+        window.scrollTo(0, 0);
+      }
+      
+      prevHash = currentHash;
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);

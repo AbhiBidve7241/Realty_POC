@@ -43,7 +43,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-18 bg-light">
+    <section id="about" className="py-18 bg-light scroll-mt-24">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
 

@@ -26,7 +26,7 @@ const amenitiesList = [
 
 const Amenities = () => {
   return (
-    <section id="amenities" className="py-20 bg-white">
+    <section id="amenities" className="py-20 bg-white scroll-mt-24">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Lifestyle</h2>

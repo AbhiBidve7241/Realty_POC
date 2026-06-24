@@ -11,6 +11,10 @@ export default {
         concrete: '#393E46',
         primary: '#FFD369', // Gold/orange accent
         light: '#EEEEEE',
+        forest: '#224141',
+        sage: '#486664',
+        gold: '#C3B388',
+        ivory: '#E9E5DD',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

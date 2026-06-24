@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const ContactForm = () => {
   return (
-    <section id="contact" className="py-20 bg-white relative">
+    <section id="contact" className="py-20 bg-white relative scroll-mt-24">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row gap-16">
           
