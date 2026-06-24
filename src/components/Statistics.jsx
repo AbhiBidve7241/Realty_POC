@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-const stats = [
-  { value: '25+', label: 'Years Experience' },
-  { value: '1200+', label: 'Homes Delivered' },
-  { value: '8', label: 'Ongoing Projects' },
-  { value: '15', label: 'Project Completed' },
-];
+import { dataStore } from '../utils/dataStore';
 
 const Statistics = () => {
+  const [stats, setStats] = useState([]);
+
+  useEffect(() => {
+    setStats(dataStore.getStats());
+  }, []);
+
   return (
     <section className="relative -mt-20 z-20 pb-16">
       <div className="container mx-auto px-6 md:px-12">

@@ -1,86 +1,17 @@
-import React, { useState } from 'react';
-import { motion,AnimatePresence  } from 'framer-motion';
-
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, ChevronDown } from 'lucide-react';
-const projects = [
-  {
-    id: 1,
-    title: 'Skyline Heights',
-    location: 'Hinjewadi Phase 2, Pune',
-    status: 'Ongoing',
-    progress: 75,
-    expectedCompletion: 'Dec 2026',
-    flatsAvailable: 18,
-    startingPrice: '₹72 Lakh',
-    category: 'Residential',
-    image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 2,
-    title: 'Green Valley Residency',
-    location: 'Tathawade, Pune',
-    status: 'Ongoing',
-    progress: 55,
-    expectedCompletion: 'Mar 2027',
-    flatsAvailable: 32,
-    startingPrice: '₹58 Lakh',
-    category: 'Affordable Housing',
-    image: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 3,
-    title: 'Business Square',
-    location: 'Baner Road, Pune',
-    status: 'Ongoing',
-    progress: 85,
-    expectedCompletion: 'Sep 2026',
-    flatsAvailable: 10,
-    startingPrice: '₹1.45 Cr',
-    category: 'Commercial',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 4,
-    title: 'Royal Enclave',
-    location: 'Kharadi, Pune',
-    status: 'Ongoing',
-    progress: 35,
-    expectedCompletion: 'Jan 2028',
-    flatsAvailable: 48,
-    startingPrice: '₹95 Lakh',
-    category: 'Luxury',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 5,
-    title: 'Park View Residency',
-    location: 'Punawale, Pune',
-    status: 'Ongoing',
-    progress: 60,
-    expectedCompletion: 'Jun 2027',
-    flatsAvailable: 25,
-    startingPrice: '₹65 Lakh',
-    category: 'Residential',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 6,
-    title: 'Urban Greens',
-    location: 'Ravet, PCMC',
-    status: 'Ongoing',
-    progress: 45,
-    expectedCompletion: 'Nov 2027',
-    flatsAvailable: 40,
-    startingPrice: '₹54 Lakh',
-    category: 'Affordable Housing',
-    image: 'https://plus.unsplash.com/premium_photo-1748406880127-ece0f3119976?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  }
-];
+import { dataStore } from '../utils/dataStore';
 
 const categories = ['All', 'Residential', 'Commercial', 'Luxury', 'Affordable Housing'];
 
 const OngoingProjects = () => {
+  const [projects, setProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
+
+  useEffect(() => {
+    setProjects(dataStore.getOngoing());
+  }, []);
 
   const filteredProjects = projects.filter(
     (project) => activeFilter === 'All' || project.category === activeFilter

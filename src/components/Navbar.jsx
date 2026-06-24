@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, PhoneCall } from 'lucide-react';
+import { Menu, X, PhoneCall, Settings } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -42,6 +42,13 @@ const Navbar = () => {
             <PhoneCall size={18} />
             <span>Call Now</span>
           </a>
+          <a 
+            href="#admin" 
+            className={`p-2.5 rounded-md border transition-all ${isScrolled ? 'text-charcoal border-charcoal/10 hover:bg-gray-100' : 'text-white border-white/20 hover:bg-white/10'}`}
+            title="Admin Portal"
+          >
+            <Settings size={18} />
+          </a>
         </div>
 
         {/* Mobile Nav Toggle */}
@@ -75,6 +82,14 @@ const Navbar = () => {
             <a href="tel:+1234567890" className="flex items-center justify-center gap-2 bg-primary text-charcoal px-5 py-3 rounded-md font-semibold mt-4">
               <PhoneCall size={20} />
               <span>Call Now</span>
+            </a>
+            <a 
+              href="#admin" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 bg-charcoal text-white px-5 py-3 rounded-md font-semibold mt-2 hover:bg-concrete transition-colors"
+            >
+              <Settings size={18} className="text-primary" />
+              <span>Admin Portal</span>
             </a>
           </motion.div>
         )}

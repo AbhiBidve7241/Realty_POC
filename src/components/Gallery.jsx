@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-const images = [
-  { src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Exterior', span: 'col-span-1 md:col-span-2 row-span-2' },
-  { src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', alt: 'Living Room', span: 'col-span-1 row-span-1' },
-  { src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', alt: 'Kitchen', span: 'col-span-1 row-span-1' },
-  { src: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Balcony View', span: 'col-span-1 md:col-span-2 row-span-1' },
-  { src: 'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', alt: 'Amenities', span: 'col-span-1 row-span-1' },
-];
+import { dataStore } from '../utils/dataStore';
 
 const Gallery = () => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    setImages(dataStore.getGallery());
+  }, []);
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12">

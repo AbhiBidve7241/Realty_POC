@@ -1,39 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Calendar, MapPin } from 'lucide-react';
-
-const upcoming = [
-  {
-    id: 1,
-    title: 'Elite Crown',
-    city: 'Wakad, Pune',
-    launchDate: 'Q4 2026',
-    image: 'https://www.tatacarnatica.ind.in/project/new-township-projects-in-bangalore-2022.webp',
-  },
-  {
-    id: 2,
-    title: 'Green Vista Villas',
-    city: 'Hinjewadi Phase 3, Pune',
-    launchDate: 'Q1 2027',
-    image: 'https://assets.architecturaldigest.in/photos/67c6a32993c76f196dc5b842/16:9/w_1920,c_limit/Untitled%20design%20-%202025-03-04T122218.613.png',
-  },
-  {
-    id: 3,
-    title: 'Skyline Signature',
-    city: 'Kharadi, Pune',
-    launchDate: 'Q2 2027',
-    image: 'https://www.squareyards.com/blog/wp-content/uploads/2023/11/what-is-Residential-Buildings.jpg',
-  },
-  {
-    id: 4,
-    title: 'Urban Greens',
-    city: 'Punawale, PCMC',
-    launchDate: 'Q3 2027',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
-  }
-];
+import { dataStore } from '../utils/dataStore';
 
 const UpcomingProjects = () => {
+  const [upcoming, setUpcoming] = useState([]);
+
+  useEffect(() => {
+    setUpcoming(dataStore.getUpcoming());
+  }, []);
+
   return (
     <section className="py-20 bg-charcoal text-white relative overflow-hidden">
       {/* Decorative Glow Elements */}

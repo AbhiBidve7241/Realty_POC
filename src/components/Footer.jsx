@@ -32,7 +32,7 @@ const Footer = () => {
               <li><a href="#projects" className="text-gray-400 hover:text-primary transition-colors text-sm flex items-center gap-2"><span className="text-primary text-xs">▹</span> Ongoing Projects</a></li>
               <li><a href="#inventory" className="text-gray-400 hover:text-primary transition-colors text-sm flex items-center gap-2"><span className="text-primary text-xs">▹</span> Availability</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-primary transition-colors text-sm flex items-center gap-2"><span className="text-primary text-xs">▹</span> Contact Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm flex items-center gap-2"><span className="text-primary text-xs">▹</span> Careers</a></li>
+              <li><a href="#admin" className="text-gray-400 hover:text-primary transition-colors text-sm flex items-center gap-2"><span className="text-primary text-xs">▹</span> Admin Portal</a></li>
             </ul>
           </div>
 
