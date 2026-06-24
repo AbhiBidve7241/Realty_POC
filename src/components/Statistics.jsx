@@ -10,11 +10,11 @@ const Statistics = () => {
   }, []);
 
   return (
-    <section className="relative -mt-20 z-20 pb-16">
+    <section className="relative -mt-16 z-20 pb-16">
       <div className="container mx-auto px-6 md:px-12">
         <div className="bg-white rounded-xl shadow-2xl p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-gray-200">
           {stats.map((stat, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
